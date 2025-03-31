@@ -10,7 +10,7 @@ const Login = () => (
       <form className="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
         <input type="email" placeholder="Email" className="w-full p-2 mb-4 border rounded" />
         <input type="password" placeholder="Password" className="w-full p-2 mb-4 border rounded" />
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
+        <button type="submit" className="bg-[#0A2647] text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
           Login
         </button>
       </form>

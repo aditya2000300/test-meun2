@@ -11,6 +11,7 @@ import { LazyMotion, domAnimation } from 'framer-motion';
 
 
 
+
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        
       </Routes>
     </Router>
     
