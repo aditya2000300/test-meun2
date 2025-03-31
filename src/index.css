@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@400;600;700&family=Inter:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Helvetica', 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Helvetica', 'Inter', sans-serif;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.font-gilroy {
+  font-family: 'Helvetica', 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.font-helvetica {
+  font-family: 'Helvetica', 'Inter', sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #0A2647, #144272);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-cta {
+  @apply bg-[#F4A261] text-[#0A2647] py-2 px-4 rounded-lg hover:bg-[#2A6F97] transition-transform transform hover:scale-105 font-helvetica;
+}
+
+/* Ensure slider cards are properly spaced */
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-list {
+  margin: 0 -10px;
+}
+
+/* Optimize animations for performance */
+.lazy-load {
+  will-change: transform, opacity;
+}
+
+/* Smooth transitions for hover effects */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Custom range slider for Before/After */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #144272;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -8px;
+  background: #F4A261;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid #0A2647;
+}
+
+/* Fallback styles to ensure full visibility */
+body, h1, h2, h3, p, img, button, input, textarea, div, span, a {
+  opacity: 1 !important; /* Override any transparency */
+}
+
+/* Remove background opacity for hover effects */
+.service-card:hover,
+.testimonial-card:hover,
+.faq-item button:hover {
+  background-color: #2A6F97 !important; /* Solid color instead of transparent */
+}
