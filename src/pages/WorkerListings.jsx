@@ -244,7 +244,7 @@ const WorkerListings = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="p-6 bg-white rounded-2xl shadow-lg border border-[#144272]  transition-all duration-300"
+                className="p-6 bg-white rounded-2xl shadow-lg border border-[#144272] transition-all duration-300"
               >
                 <img
                   src={worker.img}
