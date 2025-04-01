@@ -678,14 +678,14 @@ const Home = () => {
 
       {/* Navbar */}
       <motion.div
-        initial={{ y: -100 }}
-        animate={{ y: 0, opacity: 1 }} // Ensure final opacity is 1
-        transition={{ duration: 0.8, type: 'spring', stiffness: 120 }}
+        // initial={{ y: -100 }}
+        // animate={{ y: 0, opacity: 1 }} // Ensure final opacity is 1
+        // transition={{ duration: 0.8, type: 'spring', stiffness: 120 }}
         className="sticky top-0 z-50 bg-[#0A2647] shadow-lg"
       >
         <nav className="container mx-auto px-4 py-4 flex items-center justify-between font-gilroy">
           <Link to="/" className="text-2xl font-bold text-white">
-            MEUN
+          <span className="text-2xl font-bold text-white">MEUN <span className='text-yellow-300 text-base ml-6 font-thin'>Meet Everything U Need</span></span>
           </Link>
           <div className="flex space-x-6">
             {['Home', 'Services', 'About', 'Contact'].map((item, index) => (
@@ -1002,7 +1002,7 @@ const Home = () => {
             <div key={index} className="px-4">
               <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15}>
                 <div
-                  className="testimonial-card p-6 bg-white rounded-2xl shadow-lg border border-[#144272] hover:bg-[#2A6F97] transition-all duration-300" // Removed hover:bg-opacity-10
+                  className="testimonial-card p-6 bg-white rounded-2xl shadow-lg border border-[#144272] hover:bg-[#2A6F97] F transition-all duration-300" // Removed hover:bg-opacity-10
                 >
                   <img
                     src={testimonial.img}
@@ -1110,10 +1110,10 @@ const Home = () => {
           <a href="#" className="text-2xl hover:text-[#F4A261] transition-colors">
             <FontAwesomeIcon icon={faTwitter} />
           </a>
-          <a href="#" className="text-2xl hover:text-[#F4A261] transition-colors">
+          <a href="https://www.instagram.com/meunpvtltd?igsh=dW1hanVuZ3VwNDhm" className="text-2xl hover:text-[#F4A261] transition-colors">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href="#" className="text-2xl hover:text-[#F4A261] transition-colors">
+          <a href="https://www.linkedin.com/company/meun/" className="text-2xl hover:text-[#F4A261] transition-colors">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </div>

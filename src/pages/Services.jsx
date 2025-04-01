@@ -59,22 +59,22 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-12 container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <section className="py-12 container mx-auto px-4 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
           {filteredServices.map((service, index) => (
             <motion.div
               key={service.name}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="p-6 bg-white rounded-2xl shadow-lg border border-[#144272] text-center hover:bg-[#2A6F97] transition-all duration-300"
+              className="p-6 bg-white rounded-2xl shadow-lg border border-[#144272] text-center hover:bg-[#2a6f97] transition-all duration-300"
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-bold font-gilroy text-[#0A2647]">{service.name}</h3>
+              <div className="text-4xl mb-4 ">{service.icon}</div>
+              <h3 className="text-xl font-bold font-gilroy  text-[#0A2647]">{service.name}</h3>
               <p className="text-[#144272] mt-2">{service.desc}</p>
               <Link
                 to={`/workers/${service.name.toLowerCase()}`}
-                className="mt-4 inline-block text-[#F4A261] hover:text-[#0A2647] transition-colors font-helvetica"
+                className="mt-4 inline-block text-[#F4A261] hover:text-white transition-colors font-helvetica"
               >
                 View Workers
               </Link>
