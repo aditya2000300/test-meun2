@@ -15,6 +15,9 @@ import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/fre
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ChatbotWidget from '../components/ChatbotWidget.jsx';
+import logo from '../assets/logo.png';
+import Navbar from '../components/Navbar.jsx';
+import workerVideo from '../assets/video.mp4';
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -269,7 +272,7 @@ const workerOfTheMonth = {
   experience: '4 years',
   rating: 4.8,
   img: 'https://media.istockphoto.com/id/1673558130/photo/young-housewife-working-in-kitchen-at-home.jpg?s=612x612&w=0&k=20&c=789U8LxQ6-_D2gu-X0FFQywg3g1WyJbxYptS2aMbvtk=',
-  video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder video
+  video:workerVideo, // Placeholder video
 };
 
 // How It Works data with icons
@@ -294,9 +297,9 @@ const howItWorksSteps = [
 
 // Stats data
 const stats = [
-  { label: 'Verified Workers', value: 500 },
-  { label: 'Happy Customers', value: 10000 },
-  { label: 'Cities Served', value: 50 },
+  { label: 'Verified Workers', value: 50 },
+  { label: 'Happy Customers', value: 500 },
+  { label: 'Cities Served', value: 5 },
 ];
 
 // Before/After data
@@ -677,47 +680,8 @@ const Home = () => {
       </motion.button>
 
       {/* Navbar */}
-      <motion.div
-        // initial={{ y: -100 }}
-        // animate={{ y: 0, opacity: 1 }} // Ensure final opacity is 1
-        // transition={{ duration: 0.8, type: 'spring', stiffness: 120 }}
-        className="sticky top-0 z-50 bg-[#0A2647] shadow-lg"
-      >
-        <nav className="container mx-auto px-4 py-4 flex items-center justify-between font-gilroy">
-          <Link to="/" className="text-2xl font-bold text-white">
-          <span className="text-2xl font-bold text-white">MEUN <span className='text-yellow-300 text-base ml-6 font-thin'>Meet Everything U Need</span></span>
-          </Link>
-          <div className="flex space-x-6">
-            {['Home', 'Services', 'About', 'Contact'].map((item, index) => (
-              <Link
-                key={index}
-                to={`/${item.toLowerCase()}`}
-                className="text-white hover:text-[#F4A261] transition-colors relative group"
-                onMouseEnter={(e) => {
-                  gsap.to(e.currentTarget.querySelector('.underline'), {
-                    width: '100%',
-                    duration: 0.3,
-                    ease: 'power3.out',
-                  });
-                }}
-                onMouseLeave={(e) => {
-                  gsap.to(e.currentTarget.querySelector('.underline'), {
-                    width: '0%',
-                    duration: 0.3,
-                    ease: 'power3.out',
-                  });
-                }}
-              >
-                {item}
-                <span className="underline absolute bottom-0 left-0 h-0.5 bg-[#F4A261] w-0 transition-all"></span>
-              </Link>
-            ))}
-          </div>
-          <Link to="/signup" className="btn-cta">
-            Sign Up
-          </Link>
-        </nav>
-      </motion.div>
+      <Navbar />
+
       <ChatbotWidget />
 
       {/* Hero Section */}
@@ -817,20 +781,20 @@ const Home = () => {
       </section>
 
       {/* Interactive Stats Counter Section */}
-      <section ref={statsRef} className="py-20 px-4 bg-[#F8FAFC] text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 font-gilroy gradient-text">Our Impact</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index}>
-              <h3 className={`text-4xl font-bold font-gilroy text-[#0A2647] mb-2 stat-${index}`}>
-                0
-              </h3>
-              <p className="text-[#144272] font-helvetica">{stat.label}</p>
-            </div>
-          ))}
+      
+    <section ref={statsRef} className="py-20 px-4 bg-[#F8FAFC] text-center">
+  <h2 className="text-4xl md:text-5xl font-bold mb-16 font-gilroy gradient-text">Our Impact</h2>
+     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {stats.map((stat, index) => (
+      <div key={index}>
+        <h3 className="text-4xl font-bold font-gilroy text-[#0A2647] mb-2">
+          <span className={`stat-${index}`}>0</span>+
+        </h3>
+        <p className="text-[#144272] font-helvetica">{stat.label}</p>
         </div>
-      </section>
-
+        ))}
+      </div>
+    </section>
       {/* Call-to-Action Banner */}
       <section ref={ctaBannerRef} className="py-16 px-4 bg-[#0A2647] text-white text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 font-gilroy">Ready to Hire?</h2>
@@ -877,37 +841,39 @@ const Home = () => {
       </section>
 
       {/* Worker of the Month Section */}
-      <section className="py-20 px-4 container mx-auto bg-[#F8FAFC]">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 font-gilroy gradient-text">Worker of the Month</h2>
-        <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15}>
-          <div className="p-6 bg-white rounded-2xl shadow-lg border border-[#144272] max-w-lg mx-auto">
-            <img
-              src={workerOfTheMonth.img}
-              alt={workerOfTheMonth.name}
-              className="w-full h-56 object-cover rounded-t-2xl lazy-load"
-              loading="lazy"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold font-gilroy text-[#0A2647]">{workerOfTheMonth.name}</h3>
-              <p className="text-[#144272] font-helvetica">{workerOfTheMonth.role}</p>
-              <p className="text-[#144272] mt-1 font-helvetica">Experience: {workerOfTheMonth.experience}</p>
-              <p className="text-yellow-500 mt-1 font-helvetica">Rating: {workerOfTheMonth.rating} ★</p>
-              <div className="mt-4">
-                <iframe
-                  width="100%"
-                  height="200"
-                  src={workerOfTheMonth.video}
-                  title="Worker Introduction"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </Tilt>
-      </section>
+      
+<section className="py-20 px-4 container mx-auto bg-[#F8FAFC]">
+  <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 font-gilroy gradient-text">Worker of the Month</h2>
+  <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15}>
+    <div className="p-6 bg-white rounded-2xl shadow-lg border border-[#144272] max-w-lg mx-auto">
+      <img
+        src={workerOfTheMonth.img}
+        alt={workerOfTheMonth.name}
+        className="w-full h-56 object-cover rounded-t-2xl lazy-load"
+        loading="lazy"
+      />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold font-gilroy text-[#0A2647]">{workerOfTheMonth.name}</h3>
+        <p className="text-[#144272] font-helvetica">{workerOfTheMonth.role}</p>
+        <p className="text-[#144272] mt-1 font-helvetica">Experience: {workerOfTheMonth.experience}</p>
+        <p className="text-yellow-500 mt-1 font-helvetica">Rating: {workerOfTheMonth.rating} ★</p>
+        <div className="mt-4">
+          <video
+            width="100%"
+            height="200"
+            src={workerOfTheMonth.video}
+            controls
+            muted
+            className="rounded-lg object-cover"
+            loading="lazy"
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </Tilt>
+</section>
 
       {/* Featured Workers Section with Filter and Slider */}
       <section ref={workerRef} className="py-20 px-4 container mx-auto bg-[#F8FAFC]">
@@ -1095,8 +1061,7 @@ const Home = () => {
       {/* Footer with Contact Form */}
       <footer className="py-10 bg-[#144272] text-white text-center">
         <motion.img
-          src="https://via.placeholder.com/150x50?text=MEUN+Logo"
-          alt="MEUN Logo"
+         
           className="mx-auto mb-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }} // Ensure final opacity is 1
